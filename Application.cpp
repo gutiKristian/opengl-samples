@@ -12,6 +12,7 @@ namespace GL
         p_window = std::make_unique<Window>(title, width, height);
         // Binding to window callback
         p_window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
+        m_isRunning = true;
     }
 
     Application::~Application() = default;
