@@ -1,7 +1,6 @@
 //
 // Created by krist on 26. 4. 2023.
 //
-//TODO: REWRITE IT TO MODULES!!!
 
 #ifndef DUNNO_EVENT_H
 #define DUNNO_EVENT_H
