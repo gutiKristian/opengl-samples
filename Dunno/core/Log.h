@@ -11,7 +11,7 @@
 #define DUNNO_LOG_H
 
 
-namespace GL {
+namespace Dunno {
 
     class Log
     {
@@ -25,12 +25,12 @@ namespace GL {
         static std::shared_ptr<spdlog::logger> s_coreLogger;
     };
 
-} // GL
+} // Dunno
 
 #define LOG_ERROR(...) ::Dunno::Log::GetCoreLogger()->error(__VA_ARGS__)
-#define LOG_INFO(...) ::GL::Log::GetCoreLogger()->info(__VA_ARGS__)
+#define LOG_INFO(...) ::Dunno::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define LOG_WARN(...) ::Dunno::Log::GetCoreLogger()->warn(__VA_ARGS__)
-#define LOG_CRITICAL(...) ::GL::Log::GetCoreLogger()->critical(__VA_ARGS__)
+#define LOG_CRITICAL(...) ::Dunno::Log::GetCoreLogger()->critical(__VA_ARGS__)
 
 
 #endif //DUNNO_LOG_H

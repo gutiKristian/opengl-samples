@@ -4,7 +4,7 @@
 
 #include "Log.h"
 
-namespace GL
+namespace Dunno
 {
 
     std::shared_ptr<spdlog::logger> Log::s_coreLogger;
@@ -14,8 +14,8 @@ namespace GL
         // Setting pattern
         // Timestamp: Message in color of it's severity
         spdlog::set_pattern("%^[%T]: %v%$");
-        s_coreLogger = spdlog::stdout_color_mt("GL");
+        s_coreLogger = spdlog::stdout_color_mt("Dunno");
         s_coreLogger->set_level(spdlog::level::trace);
     }
 
-} // GL
+} // Dunno

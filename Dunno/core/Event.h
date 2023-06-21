@@ -11,9 +11,9 @@
 #include <string>
 #include <sstream>
 
-#include "../core/Log.h"
+#include "Log.h"
 
-namespace GL
+namespace Dunno
 {
     enum class EventType
     {

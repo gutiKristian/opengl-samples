@@ -8,9 +8,9 @@
 #include "GLFW/glfw3.h"
 #include "Window.h"
 #include "Log.h"
-#include "../events/Event.h"
+#include "Event.h"
 
-namespace GL
+namespace Dunno
 {
     Window::Window(std::string title, int width, int height)
     {
@@ -28,6 +28,8 @@ namespace GL
 
     void Window::Initialize()
     {
+        Log::Init();
+
         if (!glfwInit())
         {
             LOG_CRITICAL("GLFW failed to initialize!");

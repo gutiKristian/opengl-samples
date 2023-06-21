@@ -4,7 +4,7 @@
 #include <glm/ext.hpp>
 #include <GLFW/glfw3.h>
 #include "core/Log.h"
-#include "Application.h"
+#include "core/Application.h"
 
 struct Vertex
 {
@@ -74,8 +74,7 @@ int main()
     LOG_INFO("Application startup");
 
 
-    using MyApp = GL::Application;
-    auto* app = new MyApp("Sample", 800, 600);
+    auto* app = new GL::Application("Sample", 800, 600);
     app->Run();
 
     delete app;

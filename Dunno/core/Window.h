@@ -4,12 +4,12 @@
 #include <utility>
 #include <functional>
 #include "GLFW/glfw3.h"
-#include "../events/Event.h"
+#include "Event.h"
 
 #ifndef DUNNO_WINDOW_H
 #define DUNNO_WINDOW_H
 
-namespace GL
+namespace Dunno
 {
 
     class Window

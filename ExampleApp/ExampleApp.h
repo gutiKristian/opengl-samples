@@ -5,11 +5,12 @@
 #ifndef DUNNO_EXAMPLEAPP_H
 #define DUNNO_EXAMPLEAPP_H
 
-import ApplicationModule;
+#include "core/Application.h"
 
-class ExampleApp :
+class ExampleApp : public Dunno::Application
 {
-
+public:
+    ExampleApp(const std::string &&name, int &&width, int &&height) : Dunno::Application(name, width, height) {}
 };
 
 

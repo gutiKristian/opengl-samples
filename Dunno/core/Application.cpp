@@ -4,7 +4,7 @@
 
 #include "Application.h"
 
-namespace GL
+namespace Dunno
 {
 
     Application::Application(std::string title, int width, int height)
@@ -12,6 +12,7 @@ namespace GL
         p_window = std::make_unique<Window>(title, width, height);
         // Binding to window callback
         p_window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
+        p_layer = std::make_unique<Layer>();
         m_isRunning = true;
     }
 
@@ -23,6 +24,7 @@ namespace GL
         {
             // Do stuff
             p_window->OnUpdate();
+            p_layer->OnUpdate();
         }
     }
 
@@ -33,13 +35,13 @@ namespace GL
         {
             OnClose();
         }
-//        EventDispatcher::dispatch<WindowCloseEvent>([&](Event &event){}, e);
+
+        p_layer->OnEvent(e);
     }
 
     void Application::OnClose()
     {
         m_isRunning = false;
-        // window destroyed in destructor
     }
 
-} // GL
+} // Dunno
