@@ -13,7 +13,6 @@ add_library(Dunno
 
 target_include_directories(Dunno PUBLIC .)
 
-
 target_link_libraries(${PROJECT_NAME} spdlog::spdlog)
 target_link_libraries(${PROJECT_NAME} glm::glm)
 target_link_libraries(${PROJECT_NAME} glfw)
