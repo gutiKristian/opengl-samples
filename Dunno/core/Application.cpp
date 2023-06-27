@@ -58,7 +58,7 @@ namespace Dunno
 
     void Application::OnResize(int width, int height)
     {
-
+//        pLayer->OnResize(width, height);
     }
 
 

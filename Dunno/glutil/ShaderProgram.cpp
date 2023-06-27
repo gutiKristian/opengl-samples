@@ -53,7 +53,7 @@ namespace Dunno
     {
         if (!IsValid())
         {
-            LOG_WARN("Cannot use invalid program.");
+            LOG_WARN("Cannot use invalid mProgram.");
         }
         else
         {

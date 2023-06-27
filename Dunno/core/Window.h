@@ -1,13 +1,16 @@
 //
 // Created by krist on 22. 4. 2023.
+#ifndef DUNNO_WINDOW_H
+#define DUNNO_WINDOW_H
+
 #include <string>
 #include <utility>
 #include <functional>
+#include <format>
+#include "glad/glad.h"
 #include "GLFW/glfw3.h"
 #include "Event.h"
-
-#ifndef DUNNO_WINDOW_H
-#define DUNNO_WINDOW_H
+#include "Log.h"
 
 namespace Dunno
 {

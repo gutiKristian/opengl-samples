@@ -4,12 +4,9 @@ project(Dunno)
 set(CMAKE_CXX_STANDARD 20)
 
 
-add_library(Dunno
-        core/Log.cpp
-        core/Window.cpp
-        core/Event.h
-        core/Layer.h
-        core/Application.cpp glutil/Shader.h glutil/ShaderProgram.h)
+file(GLOB_RECURSE SOURCES "core/*.cpp" "glutil/*.cpp" "core/*.h" "glutil/*.h")
+
+add_library(Dunno ${SOURCES})
 
 target_include_directories(Dunno PUBLIC .)
 

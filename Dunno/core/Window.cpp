@@ -1,14 +1,7 @@
 //
 // Created by krist on 22. 4. 2023.
 //
-#include <format>
-
-#include "glad/glad.h"
-#include "glm/ext.hpp"
-#include "GLFW/glfw3.h"
 #include "Window.h"
-#include "Log.h"
-#include "Event.h"
 
 namespace Dunno
 {

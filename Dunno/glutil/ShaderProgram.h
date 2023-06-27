@@ -7,7 +7,6 @@
 
 #include <filesystem>
 #include "glutil/Shader.h"
-#include "glad/glad.h"
 
 namespace Dunno
 {
@@ -31,19 +30,19 @@ namespace Dunno
         ShaderProgram(Shader vertex, Shader fragment);
 
         /**
-         * Getter for program ID.
-         * @return Id of the program.
+         * Getter for mProgram ID.
+         * @return Id of the mProgram.
          */
         inline GLuint GetId() const { return mProgram; }
 
         /**
-         * Whether there was an error while creating a program.
-         * @return True if the program is valid, False otherwise.
+         * Whether there was an error while creating a mProgram.
+         * @return True if the mProgram is valid, False otherwise.
          */
         inline GLuint IsValid() const { return mStatus; }
 
         /**
-         * This activates the program in OpenGL.
+         * This activates the mProgram in OpenGL.
          */
         void Use() const;
 
@@ -55,12 +54,12 @@ namespace Dunno
         ShaderProgram();
 
         /**
-         * ID of the program.
+         * ID of the mProgram.
          */
         GLuint mProgram;
 
         /**
-         * Status of the program.
+         * Status of the mProgram.
          */
         bool mStatus;
 
@@ -68,6 +67,7 @@ namespace Dunno
          * In the future we might use more than two default shaders (e.g. Tesselation, Geometry).
          */
         std::vector<Shader> mShaders;
+
     };
 
 

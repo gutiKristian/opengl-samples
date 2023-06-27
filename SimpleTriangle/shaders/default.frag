@@ -1,4 +1,4 @@
-#version 450 core
+#version 460 core
 
 // final color that is drawn inside framebuffer 0 -> screen
 layout (location = 0) out vec4 FragColor;
