@@ -11,3 +11,4 @@ find_package(spdlog CONFIG REQUIRED)
 
 add_subdirectory(Dunno)
 add_subdirectory(CrossRoad)
+add_subdirectory(SimpleTriangle)
