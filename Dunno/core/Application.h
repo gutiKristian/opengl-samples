@@ -25,6 +25,7 @@ namespace Dunno
         void Run();
         void OnEvent(Event &e); // Binds to window callback
         void OnClose();
+        void OnResize(int, int);
 
     private:
         bool mIsRunning = false;

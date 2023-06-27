@@ -70,6 +70,9 @@ namespace Dunno
             WindowData& data = *(WindowData *) glfwGetWindowUserPointer(window);
             data.width = width;
             data.height = height;
+            WindowResizeEvent event;
+            data.callback(event);
+
         });
 
         glfwSetWindowCloseCallback(m_window, [](GLFWwindow* window)
@@ -165,6 +168,11 @@ namespace Dunno
     void Window::SetEventCallback(const Window::EventCallback& callback)
     {
         this->m_data.callback = callback;
+    }
+
+    std::tuple<int, int> Window::GetResolution() const
+    {
+        return { m_data.width, m_data.height };
     }
 
 

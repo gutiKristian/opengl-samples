@@ -21,6 +21,7 @@ namespace Dunno
 
         void OnUpdate();
         void SetEventCallback(const EventCallback& callback);
+        std::tuple<int, int> GetResolution() const;
 
     private:
         void Initialize();

@@ -69,6 +69,19 @@ namespace Dunno
         }
     };
 
+    struct WindowResizeEvent : public Event
+    {
+        GET_STATIC_TYPE(WindowResize);
+        GET_DYNAMIC_TYPE;
+
+        std::string GetName() const override
+        {
+            std::stringstream s;
+            s << "[EVENT]: WindowResize";
+            return s.str();
+        }
+    };
+
     /*
      * KEYCODE EVENTS
      */

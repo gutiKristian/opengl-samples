@@ -36,6 +36,12 @@ namespace Dunno
             OnClose();
         }
 
+        if (dynamic_cast<WindowResizeEvent*>(&e))
+        {
+            auto [width, height] = pWindow->GetResolution();
+            OnResize(width, height);
+        }
+
         pLayer->OnEvent(e);
     }
 
@@ -48,6 +54,11 @@ namespace Dunno
     Application::~Application()
     {
         pLayer->OnDetach();
+    }
+
+    void Application::OnResize(int width, int height)
+    {
+
     }
 
 
