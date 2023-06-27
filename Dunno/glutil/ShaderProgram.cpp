@@ -46,6 +46,19 @@ namespace Dunno
     ShaderProgram::ShaderProgram()
     {
         mProgram = glCreateProgram();
+        mStatus = false;
+    }
+
+    void ShaderProgram::Use() const
+    {
+        if (!IsValid())
+        {
+            LOG_WARN("Cannot use invalid program.");
+        }
+        else
+        {
+            glUseProgram(mProgram);
+        }
     }
 
 }

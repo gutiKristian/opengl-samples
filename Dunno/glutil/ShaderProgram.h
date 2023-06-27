@@ -42,6 +42,11 @@ namespace Dunno
          */
         inline GLuint IsValid() const { return mStatus; }
 
+        /**
+         * This activates the program in OpenGL.
+         */
+        void Use() const;
+
     private:
         /**
          * Initializes the mProgram, it's always called when we create ShaderProgram, therefore
