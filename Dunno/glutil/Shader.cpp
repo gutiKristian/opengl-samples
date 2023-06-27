@@ -10,28 +10,9 @@
 namespace Dunno
 {
 
-    std::string Shader::LoadShader(const std::filesystem::path shaderPath)
+    Shader::Shader(const std::filesystem::path& path, GLenum type) : mPath(path), mType(type)
     {
-        std::ifstream stream(shaderPath);
-        std::string source;
-
-        if (!stream.is_open())
-        {
-            LOG_ERROR("Couldn't open file: ", shaderPath.string());
-            return source;
-        }
-
-        std::string line;
-        while(std::getline(stream, line))
-        {
-            source += line + '\n';
-        }
-
-        return source;
-    }
-
-    Shader::Shader(std::string sourceCode, GLenum type)
-    {
+        std::string sourceCode = LoadShader();
         // glCreateShader takes the type of the shader we want to create
         mId = glCreateShader(type);
         const char *source = sourceCode.c_str();
@@ -68,4 +49,25 @@ namespace Dunno
         mId = 0;
 
     }
+
+    std::string Shader::LoadShader()
+    {
+        std::ifstream stream(mPath);
+        std::string source;
+
+        if (!stream.is_open())
+        {
+            LOG_ERROR("Couldn't open file: ", mPath.string());
+            return source;
+        }
+
+        std::string line;
+        while(std::getline(stream, line))
+        {
+            source += line + '\n';
+        }
+
+        return source;
+    }
+
 }
