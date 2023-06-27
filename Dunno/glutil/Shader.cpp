@@ -70,4 +70,9 @@ namespace Dunno
         return source;
     }
 
+    Shader::~Shader()
+    {
+        glDeleteShader(mId);
+    }
+
 }

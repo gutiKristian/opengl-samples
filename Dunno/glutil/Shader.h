@@ -12,13 +12,14 @@ namespace Dunno
     struct Shader
     {
         Shader(const std::filesystem::path& shaderPath, GLenum type);
+        ~Shader();
         inline int GetId() const { return mId;}
 
     private:
         std::string LoadShader();
 
     private:
-        int mId;
+        GLuint mId;
         GLenum mType;
         std::filesystem::path mPath{};
     };
