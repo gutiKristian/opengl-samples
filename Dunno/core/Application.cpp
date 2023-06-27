@@ -6,25 +6,25 @@
 
 namespace Dunno
 {
-
-    Application::Application(std::string title, int width, int height)
+    Application::Application(std::string &&name, int width, int height, Layer *layer)
     {
-        p_window = std::make_unique<Window>(title, width, height);
+        pWindow = std::make_unique<Window>(name, width, height);
         // Binding to window callback
-        p_window->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
-        p_layer = std::make_unique<Layer>();
-        m_isRunning = true;
-    }
+        pWindow->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
+        pLayer = std::unique_ptr<Layer>(layer);
 
-    Application::~Application() = default;
+        pLayer->OnAttach();
+    }
 
     void Application::Run()
     {
-        while(m_isRunning)
+        mIsRunning = true;
+
+        while(mIsRunning)
         {
             // Do stuff
-            p_window->OnUpdate();
-            p_layer->OnUpdate();
+            pWindow->OnUpdate();
+            pLayer->OnUpdate();
         }
     }
 
@@ -36,12 +36,19 @@ namespace Dunno
             OnClose();
         }
 
-        p_layer->OnEvent(e);
+        pLayer->OnEvent(e);
     }
 
+    // Called within in an event
     void Application::OnClose()
     {
-        m_isRunning = false;
+        mIsRunning = false;
     }
+
+    Application::~Application()
+    {
+        pLayer->OnDetach();
+    }
+
 
 } // Dunno

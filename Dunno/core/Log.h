@@ -15,14 +15,10 @@ namespace Dunno {
 
     class Log
     {
+        static std::shared_ptr<spdlog::logger> sCoreLogger;
     public:
-
         static void Init();
-
-        inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return s_coreLogger; }
-
-    public:
-        static std::shared_ptr<spdlog::logger> s_coreLogger;
+        inline static std::shared_ptr<spdlog::logger>& GetCoreLogger() { return sCoreLogger; }
     };
 
 } // Dunno

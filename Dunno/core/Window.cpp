@@ -28,7 +28,6 @@ namespace Dunno
 
     void Window::Initialize()
     {
-        Log::Init();
 
         if (!glfwInit())
         {

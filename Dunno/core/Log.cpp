@@ -7,15 +7,18 @@
 namespace Dunno
 {
 
-    std::shared_ptr<spdlog::logger> Log::s_coreLogger;
+    std::shared_ptr<spdlog::logger> Log::sCoreLogger = nullptr;
 
     void Log::Init()
     {
+        if (Log::sCoreLogger)
+            return;
+
         // Setting pattern
         // Timestamp: Message in color of it's severity
         spdlog::set_pattern("%^[%T]: %v%$");
-        s_coreLogger = spdlog::stdout_color_mt("Dunno");
-        s_coreLogger->set_level(spdlog::level::trace);
+        sCoreLogger = spdlog::stdout_color_mt("Dunno");
+        sCoreLogger->set_level(spdlog::level::trace);
     }
 
 } // Dunno

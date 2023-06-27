@@ -15,11 +15,11 @@
 
 namespace Dunno
 {
-
     class Application
     {
+
     public:
-        Application(std::string name = "App", int width = 800, int height = 600);
+        Application(std::string &&name, int width, int height, Layer* layer);
         ~Application();
 
         void Run();
@@ -27,10 +27,9 @@ namespace Dunno
         void OnClose();
 
     private:
-        std::unique_ptr<Window> p_window;
-        bool m_isRunning;
-        std::unique_ptr<Layer> p_layer;
-
+        bool mIsRunning = false;
+        std::unique_ptr<Window> pWindow;
+        std::unique_ptr<Layer> pLayer;
     };
 
 } // Dunno

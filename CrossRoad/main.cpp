@@ -3,15 +3,20 @@
 //
 #include <memory>
 
+#include "core/Application.h"
 #include "core/Log.h"
-#include "CrossRoadApp.h"
+#include "CrossRoadLayer.h"
 
 int main()
 {
-    Dunno::Log::Init();
+    using namespace Dunno;
+    Log::Init();
 
-    std::unique_ptr<CrossRoadApp> app = std::make_unique<CrossRoadApp>("Crossy road", 800, 600);
+    std::unique_ptr<Application> app = std::make_unique<Application>("Crossy road",
+                                                                     800, 600,
+                                                                     new CrossRoadLayer());
     app->Run();
+
 
     return 0;
 }
