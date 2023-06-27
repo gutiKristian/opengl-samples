@@ -9,7 +9,7 @@ add_library(Dunno
         core/Window.cpp
         core/Event.h
         core/Layer.h
-        core/Application.cpp)
+        core/Application.cpp glutil/Shader.cpp glutil/Shader.h)
 
 target_include_directories(Dunno PUBLIC .)
 
