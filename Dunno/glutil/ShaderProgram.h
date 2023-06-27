@@ -29,6 +29,19 @@ namespace Dunno
          * @param fragment
          */
         ShaderProgram(Shader vertex, Shader fragment);
+
+        /**
+         * Getter for program ID.
+         * @return Id of the program.
+         */
+        inline GLuint GetId() const { return mProgram; }
+
+        /**
+         * Whether there was an error while creating a program.
+         * @return True if the program is valid, False otherwise.
+         */
+        inline GLuint IsValid() const { return mStatus; }
+
     private:
         /**
          * Initializes the mProgram, it's always called when we create ShaderProgram, therefore

@@ -27,6 +27,20 @@ namespace Dunno
 
         glAttachShader(mProgram, vertex.GetId());
         glAttachShader(mProgram, fragment.GetId());
+
+        glLinkProgram(mProgram);
+        int link;
+        glGetProgramiv(mProgram, GL_LINK_STATUS, &link);
+
+        if (link == GL_FALSE)
+        {
+            mStatus = false;
+        }
+        else
+        {
+            mStatus = true;
+        }
+
     }
 
     ShaderProgram::ShaderProgram()
