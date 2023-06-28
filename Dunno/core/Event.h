@@ -30,23 +30,23 @@ namespace Dunno
         GET_DYNAMIC_TYPE;
         virtual std::string GetName() const = 0;
 
-        bool m_isHandled = false;
+        bool IsHandled = false;
     };
 
     struct EventDispatcher
     {
-        template<class T, typename F>
-        static void dispatch(const F& fun, Event& event)
+        template<typename T, typename F>
+        static void Dispatch(const F& fun, Event& event)
         {
             static_assert(std::is_base_of<Event, T>::value, "Only events are dispatched!");
 
-            if (event.m_isHandled)
+            if (event.IsHandled)
                 return;
 
             if (T::GetStaticType() == event.GetDynamicType())
             {
-                fun(event);
-                event.m_isHandled = true;
+                fun(static_cast<T&>(event));
+                event.IsHandled = true;
                 LOG_INFO(event.GetName());
             }
 

@@ -30,16 +30,23 @@ namespace Dunno
 
     void Application::OnEvent(Event &e)
     {
+
         // Trying out different options...instead of OnClose accepting e as other callbacks we use dynamic_cast
         if (dynamic_cast<WindowCloseEvent*>(&e))
         {
             OnClose();
         }
 
-        if (dynamic_cast<WindowResizeEvent*>(&e))
+        // using dispatcher
+        EventDispatcher::Dispatch<WindowResizeEvent>([&](WindowResizeEvent& ev)
         {
             auto [width, height] = pWindow->GetResolution();
             OnResize(width, height);
+        },e);
+
+        if (e.IsHandled)
+        {
+            return;
         }
 
         pLayer->OnEvent(e);
