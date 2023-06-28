@@ -4,7 +4,7 @@
   "builtin-baseline" : "69efe9cc2df0015f0bb2d37d55acde4a75c9a25b",
   "dependencies" : [ {
     "name" : "spdlog",
-    "version>=" : "1.11.0"
+    "version>=" : "1.11.0#1"
   }, {
     "name" : "glm",
     "version>=" : "0.9.9.8#2"
@@ -16,7 +16,8 @@
     "version>=" : "0.1.36"
   }, {
     "name" : "imgui",
-    "version>=" : "1.89.4",
+    "version>=" : "1.89.6#1",
+    "features" : [ "glfw-binding", "opengl3-binding" ],
     "$comment" : "    # this is heuristically generated, and may not be correct\n\n    find_package(imgui CONFIG REQUIRED)\n\n    target_link_libraries(main PRIVATE imgui::imgui)\n"
   } ]
 }
