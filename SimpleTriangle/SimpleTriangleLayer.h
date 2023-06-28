@@ -6,6 +6,7 @@
 #include "glutil/Shader.h"
 #include "glutil/ShaderProgram.h"
 
+
 class SimpleTriangleLayer : public Dunno::Layer
 {
     // Data are provided in NDC -- normalized device coordinates
