@@ -69,4 +69,10 @@ public:
         glDrawArrays(GL_TRIANGLES, 0, 3);
     }
 
+    void OnImGuiRender() override
+    {
+//        ImGui::Button("Hello SimpleTriangle xd");
+        ImGui::ShowDemoWindow();
+    }
+
 };
