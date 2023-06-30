@@ -6,14 +6,13 @@
 
 namespace Dunno
 {
-    Application::Application(std::string &&name, int width, int height, Layer *layer)
+    Application::Application(std::string &&name, int width, int height, Layer *layer) : pWindow(std::make_unique<Window>(name, width, height)),
+        pLayer(std::unique_ptr<Layer>(layer)), mImGuiLayer(pWindow->GetNativeWindow()) //  this is not very nice but will do :))
     {
-        pWindow = std::make_unique<Window>(name, width, height);
         // Binding to window callback
         pWindow->SetEventCallback(std::bind(&Application::OnEvent, this, std::placeholders::_1));
-        pLayer = std::unique_ptr<Layer>(layer);
-
         pLayer->OnAttach();
+        mImGuiLayer.OnAttach();
     }
 
     void Application::Run()
@@ -23,8 +22,13 @@ namespace Dunno
         while(mIsRunning)
         {
             // Do stuff
-            pWindow->OnUpdate();
             pLayer->OnUpdate();
+
+            mImGuiLayer.Begin();
+            pLayer->OnImGuiRender();
+            mImGuiLayer.End();
+
+            pWindow->OnUpdate();
         }
     }
 

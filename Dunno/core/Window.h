@@ -25,6 +25,7 @@ namespace Dunno
         void OnUpdate();
         void SetEventCallback(const EventCallback& callback);
         std::tuple<int, int> GetResolution() const;
+        inline GLFWwindow* GetNativeWindow() const { return m_window; }
 
     private:
         void Initialize();

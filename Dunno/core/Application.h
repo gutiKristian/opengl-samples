@@ -12,6 +12,7 @@
 #include "Window.h"
 #include "Event.h"
 #include "Layer.h"
+#include "ImGuiLayer.h"
 
 namespace Dunno
 {
@@ -31,6 +32,7 @@ namespace Dunno
         bool mIsRunning = false;
         std::unique_ptr<Window> pWindow;
         std::unique_ptr<Layer> pLayer;
+        ImGuiLayer mImGuiLayer;
     };
 
 } // Dunno

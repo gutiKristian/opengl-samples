@@ -23,6 +23,6 @@ void CrossRoadLayer::OnDetach()
     LOG_INFO("==CrossRoadLayerOnDetach==");
 }
 
-void CrossRoadLayer::ImGuiRender()
+void CrossRoadLayer::OnImGuiRender()
 {
 }

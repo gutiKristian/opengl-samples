@@ -19,7 +19,7 @@ public:
     void OnUpdate() override;
     void OnEvent(Dunno::Event&) override;
     void OnDetach() override;
-    void ImGuiRender() override;
+    void OnImGuiRender() override;
 };
 
 

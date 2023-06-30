@@ -16,7 +16,7 @@ namespace Dunno
         virtual void OnUpdate() {};
         virtual void OnEvent(Event&) {};
         virtual void OnDetach() {};
-        virtual void ImGuiRender() {};
+        virtual void OnImGuiRender() {};
 
 
         virtual ~Layer() = default;
